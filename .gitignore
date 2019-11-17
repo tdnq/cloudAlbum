@@ -1,0 +1,6 @@
+
+# 依赖
+/node_modules
+
+# 日志
+logs.app.log
