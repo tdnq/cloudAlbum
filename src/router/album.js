@@ -1,8 +1,8 @@
 const router =require("koa-router")();
 const album= require("../controller/album.js");
 router
-    .get("/getAlbum",album.getAlbum)
-    .post("/addAlbum",album.addAlbum)
-    .put("/updateAlbum",album.updateAlbum)
-    .del("/deleteAlbum",album.deleteAlbum);
+    .get("/",album.getAlbum)
+    .post("/",album.addAlbum)
+    .put("/",album.updateAlbum)
+    .del("/",album.deleteAlbum);
 module.exports = router.routes();

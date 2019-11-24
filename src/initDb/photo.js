@@ -1,26 +1,28 @@
 const mogoose = require("mongoose");
 
 const photoSchema = new mogoose.Schema({
-    usrId:{
-        type:String
+    userId: {
+        type: String
     },
-    url:{
-        type:String
+    url: {
+        type: String
     },
-    isApproved:{
-        type:Boolean,
-        default:null
+    isApproved: {
+        type: Boolean,
+        default: false
     },
-    albumId:{
-        type:mogoose.Schema.Types.ObjectId
+    albumName: {
+        type: String,
+        default:""
     },
-    created:{
-        type:Date,
-        default:Date.now
-    },
-    idDeleted:{
-        type:Boolean,
-        default:false
+    idDeleted: {
+        type: Boolean,
+        default: false
     }
-});
-module.exports=mogoose.model("photo",photoSchema,'photo');
+},
+    {
+        versionKey: false,
+        timestamps: { createdAt: "created", updatedAt: "updated" }
+    }
+);
+module.exports = mogoose.model("photo", photoSchema, 'photo');

@@ -4,9 +4,9 @@ log4js.configure({
     appenders:{
         everything:{
             type:'file',
-            filename: "../logs/app.log",
+            filename: "logs/app.log",
             maxLogSize:10485760,
-            backups:2,
+            backups:3,
             compress:true
         },
         dev:{
@@ -25,7 +25,7 @@ log4js.configure({
     }
 });
 
-let logger = log4js.getLogger();
+let logger = log4js.getLogger("everything");
 if(env!=="product"){
     logger = log4js.getLogger("dev");
 }
