@@ -1,0 +1,23 @@
+<!--pages/album.wxml-->
+<view class="container">
+  <view class="albums">
+    <view class="album_add view-center album" bindtap="showAddAlbumDialog">
+      <view>
+        <mp-icon icon="add" size="30" color="skyblue"></mp-icon>
+        <view>新建相册</view>
+      </view>
+    </view>
+    <block wx:for="{{albums}}" class="album" wx:key="{{index}}">
+      <Album name="{{item.name}}" count="{{item.count}}"></Album>
+    </block>
+  </view>
+  <Footer></Footer>
+  <!-- 增加相册 -->
+  <mp-dialog title="新建相册" show="{{dialogShow}}" bindbuttontap="addAlbumDeal" buttons="{{buttons}}" >
+    <mp-cells>
+      <mp-cell show-error prop="idcard">
+        <input bindinput="addAlbumInput" value="{{addAlbumName}}" class="weui-input" placeholder="请输入新相册名称" />
+      </mp-cell>
+    </mp-cells>
+  </mp-dialog>
+</view>

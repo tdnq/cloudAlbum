@@ -1,0 +1,6 @@
+<!--components/photo/photo.wxml-->
+<view class="photo">
+      <view>
+        <image src="{{url}}" class="photo_image"></image>
+      </view>
+</view>

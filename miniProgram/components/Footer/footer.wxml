@@ -1,0 +1,18 @@
+<!--components/Footer/footer.wxml-->
+
+<footer>
+  <view class="footer">
+    <view bindtap="iconPosChange" data-index="0">
+      <navigator url="/pages/index/index">
+        <mp-icon type="field" icon="me" size="{{45}}"></mp-icon>
+        <view>我的</view>
+      </navigator>
+    </view>
+    <view bindtap="iconPosChange" data-index="1">
+      <navigator url="/pages/album/album">
+        <mp-icon type="field" icon="album" color="{{iconColor[1]}}" size="{{45}}"></mp-icon>
+        <view>相册</view>
+      </navigator>
+    </view>
+  </view>
+</footer>

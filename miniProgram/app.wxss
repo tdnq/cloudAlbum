@@ -1,0 +1,14 @@
+/**app.wxss**/
+@import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+page{
+  margin-bottom: 140rpx;
+}
+.container{
+  height: 100%;
+}
+.view-center{
+  display: flex;
+}
+.view-center>view{
+  margin: auto;
+}

@@ -1,6 +1,6 @@
 
 # 依赖
-/node_modules
-
+node_modules
+miniprogram_npm
 # 日志
-logs.app.log
+/server/logs

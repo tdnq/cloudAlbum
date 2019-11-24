@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "Footer":"../../components/Footer/footer",
+    "mp-icon":"../../miniprogram_npm/weui-miniprogram/icon/icon",
+    "Album":"../../components/Album/album",
+    "mp-dialog":"../../miniprogram_npm/weui-miniprogram/dialog/dialog",
+    "mp-cell":"../../miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-cells":"../../miniprogram_npm/weui-miniprogram/cells/cells"
+  },
+  "navigationBarTitleText": "我的相册"
+}
