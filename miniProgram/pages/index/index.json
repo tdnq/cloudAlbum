@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Footer":"../../components/Footer/footer"
+    },
+
+  "navigationBarTitleText":"简易云相册"
+}

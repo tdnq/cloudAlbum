@@ -1,0 +1,42 @@
+page{
+  height: calc(100% - 140rpx);
+}
+.userInfo{
+  display: flex;
+  flex-direction: column;
+  background-color: skyblue;
+  height: 40%;
+}
+.userInfo>view{
+  width: 100%;
+  text-align: center;
+}
+.userInfo>view:first-child{
+  margin-top: auto;
+}
+.user_avatar{
+  border-radius: 50%;
+  display: inline-block;
+  height: 250rpx;
+  width: 250rpx;
+  margin: 0 auto;
+}
+.log_admin{
+  display: flex;
+  height: 50%;
+}
+.log_admin>button{
+  border-radius: 10rpx;
+  background-color: rgb(123, 155, 192);
+  color: white;
+  margin: auto;
+}
+.project_address{
+  height: 10%;
+  display: flex;
+  background-color: rgb(121, 189, 206);
+}
+.project_address>address{
+    color: white;
+    margin: auto;
+}

@@ -1,0 +1,24 @@
+<!--pages/single/single.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="album_bg">
+      <image src="../../assets/header.jpg"></image>
+      <view class="album_info">
+        <p>name</p>
+        <p>4张</p>
+      </view>
+    </view>
+  </view>
+  <view class="upload_img">
+    <button bindtap="uploadImg">上传图片</button>
+  </view>
+  <!-- 照片 -->
+  <view class="photos">
+  <block wx:for="{{imgs}}" wx:key="{{index}}">
+    <Photo url="{{item}}"/>
+  </block>
+
+  </view>
+  <Footer/>
+</view>
+
