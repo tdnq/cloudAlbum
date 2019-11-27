@@ -4,3 +4,4 @@ node_modules
 miniprogram_npm
 # 日志
 /server/logs
+www/uploads
