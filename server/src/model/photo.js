@@ -1,4 +1,4 @@
-const photo = require("../initDb/photo.js");
+const photo = require("../../initDb/photo.js");
 const {dbConnect,dbClose} = require("../utils/db.js");
 module.exports={
     findPhotoByUserIdAndName:async function(photoInfo){

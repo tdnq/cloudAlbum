@@ -1,4 +1,4 @@
-const album = require("../initDb/album.js");
+const album = require("../../initDb/album.js");
 const {dbConnect,dbClose} = require("../utils/db.js");
 module.exports = {
     /**

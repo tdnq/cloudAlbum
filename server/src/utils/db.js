@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const {db}=require("../config");
+const {db}=require("../../config");
 // 连接数据库
 const dbConnectString=`mongodb://${db.host}:${db.port}/${db.dbName}`;
 async function dbConnect(){

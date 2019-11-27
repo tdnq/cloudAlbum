@@ -1,4 +1,4 @@
-const userDbModel = require("../initDb/user.js");
+const userDbModel = require("../../initDb/user.js");
 const {dbConnect,dbClose} =require("../utils/db.js");
 
 module.exports = {
