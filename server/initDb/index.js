@@ -1,4 +1,4 @@
-const {dbConnect,dbClose}=require("../utils/db.js")
+const {dbConnect,dbClose}=require("../src/utils/db.js");
 const albumModel = require("./album.js");
 const userModel =require("./user.js");
 const photoModel = require("./photo.js");
