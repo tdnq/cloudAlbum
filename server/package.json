@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start_server": "node ./src/app.js",
-    "initDb": "node ./src/initDb/index.js"
+    "start_server": "node ./app.js",
+    "initDb": "node ./initDb/index.js"
   },
   "keywords": [],
   "author": "",

@@ -11,7 +11,7 @@ const photoSchema = new mogoose.Schema({
         type: Boolean,
         default: false
     },
-    albumName: {
+    album: {
         type: String,
         default:""
     },

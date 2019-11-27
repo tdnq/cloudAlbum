@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
-
+const {db}=require("../config");
 // 连接数据库
+const dbConnectString=`mongodb://${db.host}:${db.port}/${db.dbName}`;
 async function dbConnect(){
     return new Promise((resolve,reject)=>{
-        mongoose.connect("mongodb://localhost:27017/cloudAlbum", { 
+        mongoose.connect(dbConnectString, { 
                             useUnifiedTopology: true, 
                             useNewUrlParser: true
                         });
