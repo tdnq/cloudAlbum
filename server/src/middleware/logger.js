@@ -4,7 +4,7 @@ log4js.configure({
     appenders:{
         everything:{
             type:'file',
-            filename: "../logs/app.log",
+            filename: "logs/app.log",
             maxLogSize:10485760,
             backups:3,
             compress:true

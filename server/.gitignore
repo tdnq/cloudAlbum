@@ -3,6 +3,6 @@
 node_modules
 miniprogram_npm
 # 日志
-/server/logs
+/logs
 # 上传文件
 www/uploads

@@ -3,7 +3,7 @@ const path=require("path");
 const koaMulter=require("koa-multer");
 const {rootPath} = require("../../config.js");
 const storage = koaMulter.diskStorage({
-    destination:path.join(rootPath,"www/uploads"),
+    destination:path.join(rootPath,"server/www/uploads"),
     filename: function (req, file,cb) {
         const ext = path.extname(file.originalname);
         cb(null,Date.now()+ext);
