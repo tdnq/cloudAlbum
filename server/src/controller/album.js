@@ -19,7 +19,6 @@ module.exports = {
     updateAlbum:async(ctx,next)=>{
         const {userId,name,newName} = ctx.request.body;
         const isExistAlbum = await album.isExistAlbum(userId,name);
-        console.log(isExistAlbum);
         if(isExistAlbum){
             const dealRes = await album.update(userId,name,newName);
             ctx.body=dealRes;
@@ -31,7 +30,6 @@ module.exports = {
     deleteAlbum: async(ctx,next)=>{
         const {userId,name}= ctx.request.body;
         const isExistAlbum = await album.isExistAlbum(userId,name);
-        console.log(isExistAlbum);
         if(isExistAlbum){
             const dealRes = await album.delete(userId,name);
             ctx.body=dealRes;

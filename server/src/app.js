@@ -1,4 +1,5 @@
 const koa = require("koa");
+const serverPort = require("../config.js").port;
 const router = require("./router/index.js");
 const koaBodyparser =require("koa-bodyparser");
 const logger = require("./middleware/logger.js");
@@ -14,6 +15,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 
 //app监听
-app.listen(3000,"localhost",()=>{
+app.listen(serverPort,"localhost",()=>{
     console.log("server start at http://localhost:3000");
 })
+module.exports=app;
