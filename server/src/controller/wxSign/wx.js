@@ -3,8 +3,7 @@ const https = require("https");
 
 // 获取微信登录信息
 async function getSession(code) {
-    let testCode="023Vac292m9FgK0oncZ82fle292Vac2f";
-    const url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${testCode}&grant_typt=authorization_code`;
+    const url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${code}&grant_typt=authorization_code`;
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
             let data="";
@@ -12,7 +11,8 @@ async function getSession(code) {
                 data+=chunk;
             });
             res.on("end",(e)=>{
-                resolve("123456");
+                resolve(data);
+                console.log(code,data);
             });
             res.on("error",(e)=>{
                 reject();
@@ -21,7 +21,8 @@ async function getSession(code) {
     });
 }
 async function getOpenId(code) {
-    const openId = await getSession(code);
+    const wxLoginReq = await getSession(code);
+    let openId=JSON.parse(wxLoginReq).openid;
     if (openId) {
         return openId;
     } else {

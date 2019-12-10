@@ -2,10 +2,12 @@
 const photoModel = require("../model/photo.js");
 const queryString = require("querystring");
 const url = require("url");
+const path=require("path");
 
 module.exports = {
     addPhoto: async (ctx,next) => {
-        const photoInfo=Object.assign({},ctx.req.body,{url:ctx.req.file.path})
+        let uploadUrl= path.parse(ctx.req.file.path).base;
+        const photoInfo=Object.assign({},ctx.req.body,{url:uploadUrl});
         const addRes=await photoModel.add(photoInfo);
         ctx.body=addRes;
         await next();

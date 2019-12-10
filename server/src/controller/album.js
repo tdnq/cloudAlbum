@@ -11,8 +11,8 @@ module.exports = {
     },
     getAlbum: async(ctx,next) => {
         const resUrl= url.parse(ctx.url);
-        const {userId,name} = queryString.parse(resUrl.query);
-        const dealRes = await album.findAlbumByUserIdAndName(userId, name);
+        const {userId} = queryString.parse(resUrl.query);
+        const dealRes = await album.findAlbumsByUserId(userId);
         ctx.body=dealRes;
         await next();
     },

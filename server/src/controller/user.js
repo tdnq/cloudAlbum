@@ -8,9 +8,11 @@ module.exports={
     },
     login:async(ctx,next)=>{
         const {code}= ctx.request.body;
+        
         const openId=await getOpenId(code);
         const sessionKey = await userModel.login(openId);
         ctx.body=sessionKey;
+        console.log(sessionKey)
         await next();
     },
     addUser: async(ctx,next)=>{

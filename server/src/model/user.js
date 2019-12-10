@@ -13,9 +13,7 @@ const login = async (openId) => {
     }
     const sessionKey = {
         openId: user.openId,
-        timeSpan: Date.now(),
-        status: 200,
-        message: "微信登录成功"
+        timeSpan: Date.now()
     };
     return sessionKey;
 };

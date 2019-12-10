@@ -30,6 +30,19 @@ module.exports = {
         await dbClose();
         return findResult;
     },
+    findAlbumsByUserId: async (userId)=>{
+        await dbConnect();
+        const queryObject = {userId};
+        let findResult;
+        await album.find(queryObject,(err,data)=>{
+            if(err){
+                console.log(err);
+            }
+            findResult = data;
+        });
+        await dbClose();
+        return findResult;
+    },
     /**
      * 更新相册
      * @param string id/name/新相册名
