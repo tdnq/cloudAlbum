@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "Footer":"../../components/Footer/footer",
-    "Photo":"../../components/Photo/photo"
-  },
-  "navigationBarTitleText": "我的照片"
-}
