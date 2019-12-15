@@ -7,11 +7,12 @@ const config=require("../config");
 const koaStatic = require("koa-static");
 const path =require("path");
 const logger = require("./middleware/logger.js");
+const allowOrigin = require("./middleware/allowOrigin.js");
 const app = new koa();
 
 
 app.use(koaBodyparser());
-
+app.use(allowOrigin);
 //控制台打印信息
 app.use(logger);
 //路由
