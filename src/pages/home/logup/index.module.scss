@@ -1,0 +1,21 @@
+.logupFormLayout{
+    min-height: 100vh;
+    display: flex;
+    margin: auto;
+    background-image: url("../../../assets//loginBg.jpg");
+    background-size: cover;
+    .logupForm{
+        border: 2px solid #d9dbe4;
+        border-radius: 5px;
+        max-width: 520px;
+        padding: 40px 60px 0px 20px;
+        background-color: white;
+        margin: auto;
+        transform: translateY(-10%);
+        :global{
+            .login-form-button{
+                width: 100%;
+            }
+        }
+    }
+}

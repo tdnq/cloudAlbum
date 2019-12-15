@@ -1,0 +1,13 @@
+.photos{
+    color: #000;
+    :global{
+        .ant-upload-list-picture-card .ant-upload-list-item,
+        .ant-upload-list-picture-card-container,
+        .ant-upload.ant-upload-select-picture-card
+        {
+            width: 208px;
+            height: 208px;
+        }
+
+    }
+}

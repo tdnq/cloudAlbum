@@ -1,0 +1,29 @@
+.singleAlbum{
+    height: 350px;
+    max-width: 250px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgb(102, 114, 185);
+    background-image: url("../../../../assets/albumBg.jpg");
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover{
+        transform: translateY(-3%);
+    }
+    p{
+        color:white;
+        width: 100%;
+        padding: 5px;
+        background-color: #7590d4db;
+        margin-bottom: 0;
+        border-radius: 0 0 5px 5px;
+        span{
+            margin: 0 5px;
+        }
+        .name{
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+    }
+}

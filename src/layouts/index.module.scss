@@ -1,0 +1,22 @@
+:global{
+    .ant-layout-header{
+        box-shadow: 0 4px 5px #4354d0ba;
+    }
+    .ml-auto{
+        margin-left: auto!important;
+    }
+    .boxHidden{
+        visibility: hidden;
+    }
+}
+.logo{
+    color: white;
+    float: left;
+    img{
+        border-radius: 5px;
+    }
+    span{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
