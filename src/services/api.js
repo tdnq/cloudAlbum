@@ -1,4 +1,4 @@
-const host = "http://localhost:3000";
+const host = "www.nq2014.xyz";
 const userLoginApi = host + '/api/user/local/login';
 const adminUserLoginApi = host + '/api/admin/login';
 const adminReviewPhotoApi = host +"/api/admin/reviewPhoto"
