@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, message, Input, Icon } from 'antd';
-
+import servicesApi from "../../../../services/api.js";
+import request from "../../../../utils/request.js";
 import styles from "./index.module.scss";
 const info = (text) => {
   message.error(text);
@@ -29,7 +30,11 @@ export default class AddModal extends React.Component {
       visible: false,
     });
     if (this.isAdd()) {
-      console.log(this.state);
+      let that=this;
+      request(servicesApi.albumApi,"POST",{name:this.state.newAddName}).then(function(res){
+        that.props.handleAdd(that.props.albums.concat({name:that.state.newAddName,count:23}));
+      })
+
     } else {
       info("相册名不能为空")
     }

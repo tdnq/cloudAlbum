@@ -7,19 +7,20 @@
     .loginForm{
         border: 2px solid #d9dbe4;
         border-radius: 5px;
-        max-width: 520px;
+        min-width: 300px;
+        max-width: 500px;
         padding: 40px 20px;
         background-color: white;
         margin: auto;
         transform: translateY(-30%);
-        .title{
-            font-family: "楷体";
-            text-align: center;
-        }
         :global{
             .login-form-button{
                 width: 100%;
             }
+        }
+        .title{
+            font-family: "楷体";
+            text-align: center;
         }
     }
 }

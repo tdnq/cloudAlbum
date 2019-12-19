@@ -7,7 +7,7 @@ export default class SingleAlbum extends React.PureComponent {
     render() {
         return (
             <Col lg={6} sm={8} xs={12}>
-                    <Link to="/albumDetail">
+                    <Link to={`/albumDetail/${this.props.name}`}>
                     <div className={styles.singleAlbum}>
                         <p className={styles.footer}>
                             <span className={styles.name}>{this.props.name}</span>

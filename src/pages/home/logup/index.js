@@ -1,7 +1,6 @@
 import React from "react";
 import servicesApi from "../../../services/api.js";
 import request from "../../../utils/request.js";
-import {message} from "antd";
 import {
     Form,
     Input,
@@ -9,8 +8,26 @@ import {
     Icon,
     Checkbox,
     Button,
+    Modal,
+    message
 } from 'antd';
 import styles from "./index.module.scss";
+const { confirm } = Modal;
+
+function showConfirm() {
+  confirm({
+    title: '注册成功，是否去登录？',
+    okText: '登录体验',
+    cancelText: '暂时不用',
+    icon:<Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a"/>,
+    onOk() {
+      window.location.pathname="/login";
+    },
+    onCancel() {
+      console.log('Cancel');
+    },
+  });
+}
 
 class RegistrationForm extends React.Component {
     state = {
@@ -22,7 +39,7 @@ class RegistrationForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             request(servicesApi.userLogupApi,"POST",values).then(data=>{
                 if(data.status===200){
-                    message.success('注册成功');
+                    showConfirm()
                 }
             });
         });

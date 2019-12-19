@@ -1,0 +1,15 @@
+
+.albumWrapper::before{
+    content: "";
+    background-image: url("https://ssl.gstatic.com/ui/v1/icons/mail/themes/phantasea/bg_noon2_1440x900.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.ant-layout{
+    background-color: transparent;
+}

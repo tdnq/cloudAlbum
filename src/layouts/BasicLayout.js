@@ -7,10 +7,10 @@ import isShowSign from "../utils/isShowSign.js";
 import styles from "./index.module.scss";
 const { Header, Content, Footer } = Layout;
 export default class BasicLayout extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            isShowSign:isShowSign()?"boxShow":"boxShow"
+        this.state = {
+            isShowSign: isShowSign() ? "boxShow" : "boxHidden"
         }
     }
     render() {
@@ -30,21 +30,21 @@ export default class BasicLayout extends React.Component {
                         style={{ lineHeight: '64px' }}
                     >
                         <Menu.Item key="1">
-                              <Link to="album">
-                            <Icon type="fund" theme="twoTone" />
-                            相册
+                            <Link to="/album">
+                                <Icon type="fund" theme="twoTone" />
+                                相册
                             </Link>
-                            </Menu.Item>
+                        </Menu.Item>
                         <Menu.Item key="2">
                             <Icon type="question-circle" theme="twoTone" />
                             帮助</Menu.Item>
-                        <Menu.Item key="3" className={this.state.isShowSign} style={{ marginLeft:"auto" }}>
+                        <Menu.Item key="3" className={this.state.isShowSign} style={{ marginLeft: "auto" }}>
                             <Link to="/login">
                                 <Icon type="login" />
                                 登录
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="4" className={this.state.isShowSign} style={{ marginLeft:"auto" }}>
+                        <Menu.Item key="4" className={this.state.isShowSign} style={{ marginLeft: "auto" }}>
                             <Link to="/logup">
                                 <Icon type="stock" />
                                 注册
@@ -53,7 +53,7 @@ export default class BasicLayout extends React.Component {
                     </Menu>
                 </Header>
                 <Content style={{ padding: '0 50px' }}>
-                    <div style={{ padding: "24px 0", minHeight:" 100vh",maxWidth:1298,margin:"auto" }}>{this.props.children}</div>
+                    <div style={{ padding: "24px 0", minHeight: " 100vh", maxWidth: 1298, margin: "auto" }}>{this.props.children}</div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>简易云相册&copy;TD</Footer>
             </Layout>

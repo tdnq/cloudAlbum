@@ -1,0 +1,27 @@
+.singleWrapper{
+    padding: 8px;
+    border: 2px solid rgb(138, 137, 187);
+    box-sizing:padding-box;
+    margin: 1em 1em;
+    float: left;
+    .content{
+        img{
+            width: 306px;
+            height: 306px;
+        }
+        
+    }
+    .footer{
+        margin-top: 0.5rem;
+        display: flex;
+        span{
+            display: inline-block;
+        }
+        .allow{
+            margin-right: auto;
+        }
+        .reject{
+            margin-left: auto;
+        }
+    }
+}

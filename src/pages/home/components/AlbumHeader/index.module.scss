@@ -1,0 +1,21 @@
+.albumHeader{
+    min-height: 30vh;
+    background-image: url("../../../../assets/albumHeader.jpg");
+    background-size: cover;
+    margin-bottom: 2rem;
+    display: flex;
+    box-shadow: 2px 0px 4px #8492a5;
+    p{
+        margin-top: auto;
+        span{
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 1.5em;
+            &:first-child{
+                font-weight: 600;
+                color: white;
+                font-size: 2em;
+            }
+        }
+    }
+}

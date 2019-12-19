@@ -1,40 +1,60 @@
 import React from 'react';
-import './App.css';
-import  Login from "./pages/home/login/index.js";
+import Login from "./pages/home/login/index.js";
 import BasicLayout from "./layouts/BasicLayout.js";
 import Album from "./pages/home/album/index.js";
 import Logup from './pages/home/logup/index.js';
 import AlbumDetail from "./pages/home/albumDetail/index.js";
-import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
+import AdminLayout from "./layouts/adminLayout.js";
+import AdminLogin from "./pages/admin/login/index.js";
+import ReviewPhoto from "./pages/admin/reviewPhoto/index.js";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <Router>
       <Route path="/" exact>
         <BasicLayout>
-          <Album/>
+          <Login />
         </BasicLayout>
       </Route>
       <Route path="/album">
         <BasicLayout>
-          <Album/>
+
+          <Album />
         </BasicLayout>
       </Route>
       <Route path="/logup">
         <BasicLayout>
-          <Logup/>
+
+          <Logup />
         </BasicLayout>
       </Route>
       <Route path="/login">
         <BasicLayout>
-          <Login/>
+
+          <Login />
         </BasicLayout>
       </Route>
+
       <Route path="/albumDetail">
-        <BasicLayout>
-          <AlbumDetail/>
-        </BasicLayout>
+        <Route path="/albumDetail/:album">
+          <BasicLayout>
+
+            <AlbumDetail />
+          </BasicLayout>
+        </Route>
       </Route>
-    </Router>
+      {/* 后台管理 */}
+      <Switch>
+        <Route path="/admin/login">
+            <AdminLogin />
+        </Route>
+        <Route path="/admin/reviewPhoto">
+          <AdminLayout>
+            <ReviewPhoto/>
+          </AdminLayout>
+        </Route>
+      </Switch>
+    </Router >
   )
 }
 

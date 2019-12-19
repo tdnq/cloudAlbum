@@ -15,14 +15,11 @@ class NormalLoginForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            // axios.post(servicesApi.userLoginApi,values).then(function(res){
-            //     console.log(res);
-            // })
-            request(servicesApi.userLoginApi,"POST",values).then(data=>{
+            request(servicesApi.adminUserLoginApi,"POST",values).then(data=>{
                 if(data.status===200){
                     message.success('登录成功');
                     setTimeout(() => {
-                        window.location.pathname="/album"
+                        window.location.pathname="/admin/reviewPhoto"
                     }, 200);
                 }else{
                     message.error('登录失败，请确认账户密码正确');
@@ -39,7 +36,7 @@ class NormalLoginForm extends React.Component {
         return (
             <div className={styles.loginFormLayout}>
                 <div className={styles.loginForm}>
-                    <h2 className={styles.title}>云相册</h2>
+                    <h2 className={styles.title}>后台管理登录</h2>
                     <Form onSubmit={this.handleSubmit} className="login-form">
                         <Form.Item>
                             {getFieldDecorator('username', {
@@ -73,7 +70,6 @@ class NormalLoginForm extends React.Component {
                             <Button type="primary" htmlType="submit" className="login-form-button">
                                 登录
           </Button>
-                            Or <a href="/logup">去注册!</a>
                         </Form.Item>
                     </Form>
                 </div>
