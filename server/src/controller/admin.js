@@ -1,36 +1,17 @@
 const webHost = require("../../config.js").webHost;
-const localUserModel = require("../model/localUser");
-function setCookie(ctx,name,value){
-    ctx.cookies.set(
-        name,
-        "value",
-        {
-            domain:"locahost",
-            path:"/",
-            maxAge:"1000*60*60",
-            expires:Date.now()+1000*5,
-            httpOnly:false,
-            overwrite:false
-        }
-
-    )
-};
+const adminModel = require("../model/admin.js");
+const mongoose = require("mongoose");
+const ObjectId = mongoose.Types.ObjectId;
 module.exports={
-    logup:async function(ctx,next){
-        let localUserData=ctx.request.body;
-        const result= await localUserModel.add(localUserData);
-        ctx.body=result;
-        await next();
-    },
     login:async function(ctx,next){
         let authInfo = ctx.request.body;
         let apiReaponse={
             status:200
         };
-        let result = await localUserModel.login(authInfo);
+        let result = await adminModel.login(authInfo);
         if(result!==null){
             ctx.cookies.set(
-                'cloud_album', 
+                'cloud_album_admin', 
                 JSON.stringify(result),
                 {
                   domain: webHost,  // 写cookie所在的域名
@@ -46,6 +27,20 @@ module.exports={
             apiReaponse.message="无法找到用户";
         }
         ctx.body=apiReaponse;
+        await next();
+    },
+    getReviewPhotos:async function(ctx,next){
+        let result = await adminModel.getReviewPhotos();
+        ctx.body=result;
+        await next();
+    },
+    photoReviewed:async function(ctx,next){
+        let photoInfo = ctx.request.body;
+        console.log(photoInfo);
+        photoInfo._id=ObjectId(photoInfo._id);
+        let modifyInfo = {isApproved:true}
+        let res =await adminModel.photoReviewed(photoInfo,modifyInfo);
+        ctx.body=res;
         await next();
     }
 }

@@ -1,6 +1,7 @@
 const album = require("../../initDb/album.js");
 const {dbConnect,dbClose} = require("../utils/db.js");
 module.exports = {
+
     /**
      * 新建相册 
      * @param string 用户id/相册名
@@ -42,6 +43,18 @@ module.exports = {
         });
         await dbClose();
         return findResult;
+    },
+
+    updateCount:async(authInfo,updateData)=>{
+        let updateResult;
+        await dbConnect();
+        await album.updateOne(authInfo,updateData,(err,res)=>{
+            if(err){throw new Error(err)}
+            updateResult= res;
+        });
+        await dbClose();
+        // console.log(updateData,authInfo,updateData)
+        return updateResult;
     },
     /**
      * 更新相册

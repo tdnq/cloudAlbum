@@ -4,8 +4,8 @@ const queryString = require("querystring");
 const url = require("url");
 module.exports = {
     addAlbum: async (ctx,next) => {
-        const {userId , name} = ctx.request.body;
-        const dealRes = await album.add(userId, name);
+        const {authInfo , name} = ctx.request.body;
+        const dealRes = await album.add(authInfo.userId, name);
         ctx.body = dealRes;
         await next();
     },

@@ -14,18 +14,18 @@ const getLocalOpenId = (localuserData) => {
  */
 const login = async (authInfo) => {
     let useInfo={username:authInfo.username,password:authInfo.password};
-    let user = await getUserByOpenId(useInfo);
+    let user = await getUserByUserInfo(useInfo);
     if (!user) {
         return null;
     }
     const sessionKey = {
-        openId: user.openId,
+        userId: user.openId,
         timeSpan: Date.now()
     };
     return sessionKey;
 };
-const getUserByOpenId = async (authInfo) => {
-    let res;
+const getUserByUserInfo = async (authInfo) => {
+    let res=null;
     await dbConnect();
     await localUserDbModel.findOne(authInfo, (err, data) => {
         if (err) {
@@ -44,7 +44,6 @@ const getUserByOpenId = async (authInfo) => {
 const add = async (localuserData) => {
     const localOpenId = getLocalOpenId(localuserData);
     localuserData.openId=localOpenId;
-    console.log(localuserData)
     const newLocalUser = new localUserDbModel(localuserData);
     await dbConnect();
     try {
@@ -62,5 +61,6 @@ const add = async (localuserData) => {
 };
 module.exports = {
     login,
-    add
+    add,
+    getUserByUserInfo
 }
