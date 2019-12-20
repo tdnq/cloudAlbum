@@ -12,7 +12,7 @@
         padding: 40px 20px;
         background-color: white;
         margin: auto;
-        transform: translateY(-30%);
+        transform: translateY(-10%);
         :global{
             .login-form-button{
                 width: 100%;
@@ -22,5 +22,10 @@
             font-family: "楷体";
             text-align: center;
         }
+    }
+}
+@media screen and (max-width:500px){
+    .loginFormLayout{
+        background-image: none;
     }
 }

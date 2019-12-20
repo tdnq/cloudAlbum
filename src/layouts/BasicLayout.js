@@ -6,11 +6,13 @@ import logo from "../assets/logo.ico";
 import isShowSign from "../utils/isShowSign.js";
 import styles from "./index.module.scss";
 const { Header, Content, Footer } = Layout;
+const isShowSignBoolean=isShowSign();
 export default class BasicLayout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShowSign: isShowSign() ? "boxShow" : "boxHidden"
+            isShowSign: isShowSignBoolean ? "boxShow" : "boxHidden",
+            isShowAlbum: !isShowSignBoolean
         }
     }
     render() {
@@ -26,15 +28,17 @@ export default class BasicLayout extends React.Component {
                     <Menu
                         theme="dark"
                         mode="horizontal"
-                        defaultSelectedKeys={['4']}
+                        defaultSelectedKeys={[this.props.navKey]}
                         style={{ lineHeight: '64px' }}
                     >
-                        <Menu.Item key="1">
+                        {
+                           this.state.isShowAlbum?<Menu.Item key="1">
                             <Link to="/album">
                                 <Icon type="fund" theme="twoTone" />
                                 相册
                             </Link>
-                        </Menu.Item>
+                        </Menu.Item> :""
+                        }
                         <Menu.Item key="2">
                             <Icon type="question-circle" theme="twoTone" />
                             帮助</Menu.Item>
@@ -60,4 +64,7 @@ export default class BasicLayout extends React.Component {
         )
     }
 
+}
+BasicLayout.defaultProps={
+    navKey:3
 }

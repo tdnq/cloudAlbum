@@ -12,24 +12,23 @@ function App() {
   return (
     <Router>
       <Route path="/" exact>
-        <BasicLayout>
+        <BasicLayout navKey="3">
           <Login />
         </BasicLayout>
       </Route>
-      <Route path="/album">
-        <BasicLayout>
+      <Route path="/album" >
+        <BasicLayout navKey="1">
 
           <Album />
         </BasicLayout>
       </Route>
       <Route path="/logup">
-        <BasicLayout>
-
+        <BasicLayout navKey="4">
           <Logup />
         </BasicLayout>
       </Route>
       <Route path="/login">
-        <BasicLayout>
+        <BasicLayout navKey="3">
 
           <Login />
         </BasicLayout>
@@ -37,7 +36,7 @@ function App() {
 
       <Route path="/albumDetail">
         <Route path="/albumDetail/:album">
-          <BasicLayout>
+          <BasicLayout navKey="1">
 
             <AlbumDetail />
           </BasicLayout>

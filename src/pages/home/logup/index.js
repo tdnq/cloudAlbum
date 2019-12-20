@@ -97,6 +97,7 @@ class RegistrationForm extends React.Component {
         return (
             <div className={styles.logupFormLayout}>
                 <div className={styles.logupForm}>
+                    <h2 className={styles.title}>注册</h2>
                     <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                         <Form.Item
                             label={
