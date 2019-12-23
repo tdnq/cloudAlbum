@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout, Menu, Icon } from 'antd';
+import {Link} from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
@@ -29,8 +30,10 @@ export default class AdminLayout extends React.Component {
               <span>照片审核</span>
             </Menu.Item>
             <Menu.Item key="2">
+              <Link to="/admin/user">
               <Icon type="user" />
               <span>用户管理</span>
+              </Link>
             </Menu.Item>
           </Menu>
         </Sider>

@@ -1,5 +1,6 @@
 const host = "http://localhost:3000";
 const userLoginApi = host + '/api/user/local/login';
+const getUser = host +"/api/user/local/user"
 const adminUserLoginApi = host + '/api/admin/login';
 const adminReviewPhotoApi = host +"/api/admin/reviewPhoto"
 const userLogupApi = host + '/api/user/local/logup';
@@ -13,5 +14,6 @@ export default {
     userLoginApi,
     userLogupApi,
     adminUserLoginApi,
-    adminReviewPhotoApi
+    adminReviewPhotoApi,
+    getUser
 }

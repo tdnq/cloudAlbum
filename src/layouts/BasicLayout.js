@@ -20,9 +20,9 @@ export default class BasicLayout extends React.Component {
             <Layout className="layout">
                 <Header>
                     <div className={styles.logo}>
-                        <Link to="/">
+                        <a href="www.nq2014.xyz">
                             <img src={logo}></img>
-                        </Link>
+                        </a>
                         <span>简易云相册</span>
                     </div>
                     <Menu

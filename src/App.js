@@ -7,6 +7,7 @@ import AlbumDetail from "./pages/home/albumDetail/index.js";
 import AdminLayout from "./layouts/adminLayout.js";
 import AdminLogin from "./pages/admin/login/index.js";
 import ReviewPhoto from "./pages/admin/reviewPhoto/index.js";
+import AdminUser from "./pages/admin/user/index.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
@@ -50,6 +51,11 @@ function App() {
         <Route path="/admin/reviewPhoto">
           <AdminLayout>
             <ReviewPhoto/>
+          </AdminLayout>
+        </Route>
+        <Route path="/admin/user">
+          <AdminLayout>
+            <AdminUser/>
           </AdminLayout>
         </Route>
       </Switch>
