@@ -37,6 +37,19 @@ const getUserByUserInfo = async (authInfo) => {
     await dbClose();
     return res;
 };
+const getUser = async () => {
+    let res=null;
+    await dbConnect();
+    await localUserDbModel.findOne({}, (err, data) => {
+        if (err) {
+            throw new Error(err);
+        } else {
+            res = data;
+        }
+    });
+    await dbClose();
+    return res;
+};
 
 /**
  * 注册操作
@@ -62,5 +75,6 @@ const add = async (localuserData) => {
 module.exports = {
     login,
     add,
-    getUserByUserInfo
+    getUserByUserInfo,
+    getUser
 }

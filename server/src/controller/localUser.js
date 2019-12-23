@@ -47,5 +47,10 @@ module.exports={
         }
         ctx.body=apiReaponse;
         await next();
+    },
+    getUser:async function (ctx,next){
+       let res=  await localUserModel.getUser();
+       ctx.body=res;
+       await next();
     }
 }

@@ -5,5 +5,6 @@ const localUserController=require("../controller/localUser");
 router
     .post("/logIn",userController.login)
     .post("/local/login",localUserController.login)
-    .post("/local/logup",localUserController.logup);
+    .post("/local/logup",localUserController.logup)
+    .get("/local/user",localUserController.getUser);
 module.exports = router.routes();

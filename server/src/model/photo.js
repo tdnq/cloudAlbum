@@ -4,6 +4,7 @@ const {dbConnect,dbClose} = require("../utils/db.js");
 module.exports={
     findPhotoByUserIdAndName:async function(photoInfo){
         photoInfo.isApproved=true;
+        photoInfo.idDeleted=true;
         let findRes;
         await dbConnect();
         await photo.find(photoInfo,function(err,data){

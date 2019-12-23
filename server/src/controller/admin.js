@@ -36,7 +36,6 @@ module.exports={
     },
     photoReviewed:async function(ctx,next){
         let photoInfo = ctx.request.body;
-        console.log(photoInfo);
         photoInfo._id=ObjectId(photoInfo._id);
         let modifyInfo = {isApproved:true}
         let res =await adminModel.photoReviewed(photoInfo,modifyInfo);

@@ -8,7 +8,7 @@ module.exports={
     },
     port:3000,
     db:{
-        host:"192.168.44.132",
+        host:"192.168.44.136",
         port:27017,
         dbName:"cloudAlbum"
     },
