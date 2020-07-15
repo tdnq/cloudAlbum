@@ -9,8 +9,7 @@ page{
 .album{
   width: 300rpx;
   box-sizing: border-box;
-  margin: 50rpx 37.5rpx;
-  margin-bottom: 0rpx;
+  margin: 25rpx 37.5rpx;
   height: 400rpx;
   border-radius: 10rpx;
   box-shadow: 0 4rpx 8rpx rgb(146, 160, 224);

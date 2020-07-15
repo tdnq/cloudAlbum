@@ -1,8 +1,8 @@
 <!--components/Album/album.wxml-->
 <view class="album">
   <view>
-    <navigator url="/pages/single/single">
-        <image src="../../assets/header.jpg " class="album_image "></image>
+    <navigator url="/pages/single/single?album={{name}}">
+        <image src="../../assets/header.jpg " class="album_image"></image>
         </navigator>
       </view>
       <view class="album_info ">

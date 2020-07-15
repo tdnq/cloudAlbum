@@ -1,7 +1,9 @@
 // pages/album.js
+
+const albumApi = require("../../services/api.js").albumApi;
+const request = require("../../utils/request.js");
+const SESSION_KEY = wx.getStorageSync("SESSION_KEY").openId;
 Page({
-
-
   /**
    * 页面的初始数据
    */
@@ -25,14 +27,22 @@ Page({
         name:this.data.addAlbumName,
         count:0
       };
-      this.setData({
-        albums: this.data.albums.concat(newAlbum)
-      })
+      //远端增加相册
+      let that=this;
+      let resParams={
+        userId:SESSION_KEY,
+        name:this.data.addAlbumName
+      };
+      request(albumApi,resParams,"POST").then(function(res){
+        if (res.statusCode===200){
+        that.setData({
+          albums: that.data.albums.concat(res.data),
+          dialogShow: false,
+          addAlbumName: ""
+        })
+        }
+      });
     }
-    this.setData({
-      dialogShow: false,
-      addAlbumName:""
-    })
   },
   addAlbumInput:function(e){
     this.setData({
@@ -44,7 +54,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      let that=this;
+      let getAlbumApi = `${albumApi}?userId=${SESSION_KEY}`
+      wx.request({
+        url: getAlbumApi,
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            albums: that.data.albums.concat(res.data)
+          })
+        }
+        //验证信息
+      })
   },
 
   /**

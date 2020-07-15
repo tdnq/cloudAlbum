@@ -1,19 +1,47 @@
 // pages/single/single.js
+const host = require("../../services/api.js").host;
+const photoApi = require("../../services/api.js").photoApi;
+const request = require("../../utils/request.js");
+const SESSION_KEY = wx.getStorageSync("SESSION_KEY");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    imgs:[]
+    imgs:[],
+    albumName:""
+
   },
+  //上传图片
   uploadImg:function(){
     let that=this;
     wx.chooseImage({
       success: function(res) {
-        that.setData({
-          imgs: that.data.imgs.concat(res.tempFilePaths)
+        wx.uploadFile({
+          url: photoApi,
+          filePath: res.tempFilePaths[0],
+          name: 'photo',
+          formData: {
+            'userId': SESSION_KEY.openId,
+            'album':that.data.albumName
+          },
+          success:function(res){
+            if(res.statusCode===200){
+              let parseRes=JSON.parse(res.data);
+              parseRes.url = host + "/" + parseRes.url;
+              that.setData({
+                imgs: that.data.imgs.concat(parseRes)
+              })
+
+            }
+          },
+          fail:function(err){
+            throw new Error(err);
+          }
         })
+        // that.setData({
+        //   imgs: that.data.imgs.concat(res.tempFilePaths)
+        // })
       },
     });
   },
@@ -21,7 +49,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      albumName:options.album
+    });
 
+    //初始化照片
+    let that = this;
+    let getPhotoApi = `${photoApi}?userId=${SESSION_KEY.openId}&album=${this.data.albumName}`;
+    wx.request({
+      url: getPhotoApi,
+      success: function (res) {
+        res.data.forEach((item,index)=>{
+          res.data[index].url = host +"/"+res.data[index].url;
+        });
+        that.setData({
+          imgs: that.data.imgs.concat(res.data)
+        });
+      }
+      //验证信息
+    })
   },
 
   /**

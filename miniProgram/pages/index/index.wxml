@@ -2,9 +2,9 @@
 <view class="container">
   <view class="userInfo">
       <view>
-        <image src="../../assets/qinglvtu2.jpg" class="user_avatar"></image>
+        <image src="{{userInfo.avatarUrl}}" class="user_avatar"></image>
       </view>
-      <view>听雨</view>
+      <view>{{userInfo.nickName}}</view>
   </view>
   <view class="log_admin">
     <button>扫码登陆后台系统</button>
